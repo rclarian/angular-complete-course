@@ -64,3 +64,9 @@
     color: #999;
     margin-top: 7px;
 }
+
+.ekart--product--item:hover {
+  padding: 2px 6px;
+  transition: transform .2s; /* Animation */
+  cursor: pointer;
+}

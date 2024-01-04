@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import {NgFor, NgForOf} from "@angular/common";
+import {NgFor, NgForOf, CommonModule} from "@angular/common";
 
 @Component({
   selector: 'product-list',
   standalone: true,
-  imports: [NgForOf],
+  imports: [NgForOf, CommonModule],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
