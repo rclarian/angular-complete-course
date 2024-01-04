@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import {NgFor, NgForOf, CommonModule} from "@angular/common";
 import { ProductComponent } from './product/product.component';
+import { FilterComponent } from './filter/filter.component';
 
 @Component({
   selector: 'product-list',
   standalone: true,
-  imports: [NgForOf, CommonModule, ProductComponent],
+  imports: [NgForOf, CommonModule, ProductComponent, FilterComponent],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
@@ -225,6 +226,25 @@ export class ProductListComponent {
       items_left: 3,
       imageURL: "https://images.vans.com/is/image/Vans/MV122M-HERO?$583x583$",
       slug: "michael-feburary-sk8-hi"
+    },
+    {
+      id: 35,
+      name: "Michael March SK8-Hi",
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      brand: "Vans",
+      gender: "MEN",
+      category: "CASUAL",
+      size: [6, 7, 8, 9, 10, 11, 12],
+      color: ["White", "Blue", "Black", "Brown", "Red"],
+      price: 72,
+      is_in_inventory: true,
+      items_left: 3,
+      imageURL: "https://images.vans.com/is/image/Vans/MV122M-HERO?$583x583$",
+      slug: "michael-march-sk8-hi"
     }
   ];
+
+  totalProductCount:number = this.products.length;
+  totalProductInStock:number = this.products.filter(p => p.is_in_inventory === true).length;
+  totalProductOutOfStock:number = this.products.filter(p => p.is_in_inventory === false).length;
 }
