@@ -14,4 +14,11 @@ import { ProductListComponent } from './product-list/product-list.component';
 export class ContainerComponent {
   
   listOfString: string[] = ['Mark', 'Steve', 'Merry', 'John', 'Sarah'];
+
+  //2nd-#28 parent
+  searchText: string = '';
+
+  setSearchText(value: string){
+    this.searchText = value;
+  }
 }
