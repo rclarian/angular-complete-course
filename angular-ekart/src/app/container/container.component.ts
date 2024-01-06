@@ -3,12 +3,20 @@ import { SearchComponent } from './search/search.component';
 import {NgFor, NgForOf, CommonModule} from "@angular/common";
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { FeaturedBrandsComponent } from './featured-brands/featured-brands.component';
 
 
 @Component({
   selector: 'app-container',
   standalone: true,
-  imports: [SearchComponent, NgForOf, ProductListComponent, ProductDetailComponent, CommonModule],
+  imports: [
+    SearchComponent, 
+    NgForOf, 
+    ProductListComponent, 
+    ProductDetailComponent, 
+    CommonModule, 
+    FeaturedBrandsComponent
+  ],
   templateUrl: './container.component.html',
   styleUrl: './container.component.css'
 })
