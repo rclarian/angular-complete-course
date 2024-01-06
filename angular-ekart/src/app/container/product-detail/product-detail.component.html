@@ -18,8 +18,11 @@
         <div class="ekart-product-detail-price">
             <p>
                 <b>Price Each Pair:</b>
-                <span style="background-color: red; color:white"><s>${{ product.price }}</s></span>
-                <span style="background-color: green; color:white" *ngIf="product.discountPrice">${{ (100 - (product.discountPrice / product.price * 100)).toFixed(0) }}</span> (Inclusive of all taxes)
+                <span style="background-color: red; color:white" *ngIf="product.discountPrice; else discountPrice"><s>${{ product.price }}</s></span>
+                <ng-template #discountPrice>
+                    <span style="background-color: red; color:white">${{ product.price }}</span>
+                </ng-template>
+                <span style="background-color: green; color:white" *ngIf="product.discountPrice">${{ (100 - (product.discountPrice / product.price * 100)).toFixed(0) }} </span> (Inclusive of all taxes)
             </p>
         </div>
         <div class="ekart-product-detail-size">
@@ -58,7 +61,10 @@
         </div>
     </div>
     <div class="ekart-product-detail-addtoCart">
-        <button class="btn-add-to-cart">ADD TO CART</button>
+        <button class="btn-add-to-cart" *ngIf="product.is_in_inventory; else notifyMe">ADD TO CART</button>
+        <ng-template #notifyMe>
+            <button class="btn-add-to-cart">NOTIFY ME</button>
+        </ng-template>
     </div>
 </div>
 <div class="overlay"></div>
